@@ -1,1 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kierby Antonio M. — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1a0f33;
+    --bg-2:#241454;
+    --accent-1:#c026d3;
+    --accent-2:#7c3aed;
+    --text-main:#ffffff;
+    --text-muted:#c3b3e0;
+    --card:rgba(255,255,255,0.05);
+    --border:rgba(255,255,255,0.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(160deg,var(--bg-2) 0%,var(--bg) 60%);
+    color:var(--text-main);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.logo,.nav a,.btn{font-family:'Baloo 2',sans-serif;}
 
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:28px 60px;
+  }
+  .logo{font-size:24px;font-weight:800;}
+  .nav{display:flex;gap:36px;}
+  .nav a{color:#fff;text-decoration:none;font-weight:700;font-size:16px;}
+  .nav a.active{
+    background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+  .menu-toggle span{width:26px;height:3px;background:#fff;border-radius:3px;}
+
+  .hero{
+    min-height:70vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:20px 60px 60px;max-width:900px;
+  }
+  .profile-pic{
+    width:100px;height:100px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--accent-1);margin-bottom:20px;
+  }
+  .hero h1{font-size:56px;font-weight:800;margin-bottom:10px;}
+  .hero h2{font-size:26px;font-weight:700;color:#f0c8f5;margin-bottom:14px;}
+  .hero p{font-size:16px;color:var(--text-muted);margin-bottom:32px;max-width:600px;}
+
+  .pill-row{display:flex;flex-wrap:wrap;gap:16px;}
+  .pill{
+    padding:16px 30px;border-radius:999px;
+    background:linear-gradient(120deg,var(--accent-1),var(--accent-2));
+    color:#fff;text-decoration:none;font-weight:700;font-size:15px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .pill:hover{transform:translateY(-3px);box-shadow:0 0 22px rgba(192,38,211,0.5);}
+
+  section{padding:80px 60px;}
+  .section-head{margin-bottom:40px;max-width:600px;}
+  .section-head h2{font-size:32px;font-weight:800;margin-bottom:8px;}
+  .section-head p{color:var(--text-muted);font-size:15px;}
+
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;}
+  .card h3{font-size:18px;margin-bottom:16px;color:#f0c8f5;}
+  .card p{color:var(--text-muted);line-height:1.7;font-size:15px;margin-bottom:12px;}
+  .info-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;}
+  .info-row span:first-child{color:var(--text-muted);}
+  .info-row span:last-child{font-weight:600;}
+  .pills-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .skill-tag{padding:8px 16px;border-radius:20px;background:rgba(192,38,211,0.12);border:1px solid rgba(192,38,211,0.3);font-size:13px;font-weight:600;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;}
+  .item{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px;transition:.25s;}
+  .item:hover{transform:translateY(-5px);border-color:var(--accent-1);}
+  .item h3{font-size:17px;margin-bottom:8px;}
+  .item p{color:var(--text-muted);font-size:14px;line-height:1.6;margin-bottom:14px;}
+  .item a{
+    display:inline-block;padding:9px 20px;border-radius:999px;
+    background:linear-gradient(120deg,var(--accent-1),var(--accent-2));
+    color:#fff;text-decoration:none;font-weight:700;font-size:13px;
+  }
+  .icon{font-size:24px;margin-bottom:12px;display:block;}
+
+  .contact-box{
+    background:var(--card);border:1px solid var(--border);border-radius:20px;
+    padding:44px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:center;
+  }
+  .contact-box h2{font-size:26px;margin-bottom:8px;}
+  .contact-box p{color:var(--text-muted);}
+  .social-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .social-row a{
+    padding:10px 22px;border-radius:999px;border:1.5px solid var(--border);
+    color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;
+  }
+  .social-row a:hover{border-color:var(--accent-1);background:rgba(192,38,211,0.1);}
+
+  footer{padding:28px 60px;text-align:center;color:var(--text-muted);font-size:13px;border-top:1px solid var(--border);}
+
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;}}
+  @media(max-width:768px){
+    header{padding:22px 24px;}
+    .nav{
+      position:fixed;top:74px;left:0;right:0;flex-direction:column;
+      background:var(--bg-2);padding:24px;gap:18px;display:none;
+      border-bottom:1px solid var(--border);z-index:50;
+    }
+    .nav.open{display:flex;}
+    .menu-toggle{display:flex;}
+    .hero{padding:0 24px 40px;}
+    .hero h1{font-size:36px;}
+    section{padding:56px 24px;}
+    .contact-box{padding:28px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Kierby.</div>
+  <nav class="nav" id="nav">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+</header>
+
+<section class="hero" id="home">
+  <img src="profile.jpg" alt="Kierby Antonio M." class="profile-pic">
+  <h1>Hi, I'm Kierby Antonio M.</h1>
+  <h2>2nd Year Information Technology Student</h2>
+  <p>Building projects and activities one line of code at a time.</p>
+  <div class="pill-row">
+    <a href="#projects" class="pill">View Projects</a>
+    <a href="#achievements" class="pill">Achievements</a>
+    <a href="#contact" class="pill">Contact</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-head">
+    <h2>About Me</h2>
+    <p>A quick look at who I am and what I'm learning.</p>
+  </div>
+  <div class="about-grid">
+    <div class="card">
+      <h3>Quick Info</h3>
+      <div class="info-row"><span>Name</span><span>Kierby Antonio M.</span></div>
+      <div class="info-row"><span>Course</span><span>BS Information Technology</span></div>
+      <div class="info-row"><span>Year Level</span><span>2nd Year</span></div>
+      <div class="info-row"><span>Focus</span><span>Web Development</span></div>
+    </div>
+    <div class="card">
+      <h3>My Story</h3>
+      <p>[Edit me] A short paragraph about yourself — how you got into IT, what you enjoy building, and what you're currently learning.</p>
+      <div class="pills-wrap">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Git & GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="section-head">
+    <h2>Achievements</h2>
+    <p>Certificates and milestones so far.</p>
+  </div>
+  <div class="grid">
+    <div class="item">
+      <span class="icon">🎓</span>
+      <h3>Generative AI for Everyone</h3>
+      <p>Course certificate by DeepLearning.AI, offered through Coursera. Completed Feb 11, 2026.</p>
+      <a href="https://coursera.org/verify/JK0I1PTR6QBK" target="_blank">Verify →</a>
+    </div>
+    <div class="item">
+      <span class="icon">☁️</span>
+      <h3>Introduction to Generative AI</h3>
+      <p>Course certificate by Google Cloud, offered through Coursera. Completed Feb 11, 2026.</p>
+      <a href="https://coursera.org/verify/XCMVIV73SSEA" target="_blank">Verify →</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head">
+    <h2>Projects & Activities</h2>
+    <p>Linked to their folders in this repo.</p>
+  </div>
+  <div class="grid">
+    <div class="item">
+      <span class="icon">👗</span>
+      <h3>Fashion Blog</h3>
+      <p>Activity 1.1 — A styled fashion blog page, "An Insider's Guide to NYFW."</p>
+      <a href="./Activity1.1/Fashion/">Open →</a>
+    </div>
+    <div class="item">
+      <span class="icon">🍷</span>
+      <h3>Wine Festival Schedule</h3>
+      <p>Activity 1.2 — A clean event schedule table for a wine festival.</p>
+      <a href="./Activity 1.2/Wine Festival Schedule/index.html">Open →</a>
+    </div>
+    <div class="item">
+      <span class="icon">🍔</span>
+      <h3>Davie's Burgers</h3>
+      <p>Activity 2.1 — A restaurant landing page with menu nav and nutrition facts.</p>
+      <a href="./Activity2.1/Burger/index.html">Open →</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <h2>Contact</h2>
+  </div>
+  <div class="contact-box">
+    <div>
+      <h2>Let's connect</h2>
+      <p>[Edit me] Reach out for collaborations or just to say hi.</p>
+    </div>
+    <div class="social-row">
+      <a href="https://github.com/kantonio250000000109-code" target="_blank">GitHub</a>
+      <a href="mailto:youremail@example.com">Email</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Kierby Antonio M.</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const nav = document.getElementById('nav');
+document.getElementById('menuToggle').addEventListener('click', () => nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav a');
+window.addEventListener('scroll', () => {
+  let current = 'home';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 150) current = sec.getAttribute('id');
+  });
+  navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + current));
+});
+</script>
+
+</body>
+</html>
