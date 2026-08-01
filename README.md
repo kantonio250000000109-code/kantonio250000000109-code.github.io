@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:6366f1,100:22d3ee&height=120&section=header" width="100%" />
+
 <img src="profile.jpg" width="140" style="border-radius:50%;" alt="Kierby Antonio M." />
 
 # Hi, I'm Kierby Antonio M. 👋
@@ -42,5 +44,8 @@
 - GitHub: [@kantonio250000000109-code](https://github.com/kantonio250000000109-code)
 - Email: youremail@example.com
 
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:22d3ee,100:6366f1&height=4&section=footer" width="100%" />
+
+</div>
 </div>
 
